@@ -1,0 +1,480 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(215 20% 40%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(215 20% 50%);
+}
+
+::-webkit-scrollbar-button {
+  display: block;
+  height: 12px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M18 15l-6-6-6 6'/%3E%3C/svg%3E") center no-repeat;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") center no-repeat;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(215 20% 40%) transparent;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+Dark mode first design.
+*/
+
+@layer base {
+  :root {
+    /* Dark mode as default */
+    --background: 222 47% 8%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 12%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 12%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Primary green - #3DC563 */
+    --primary: 137 53% 51%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 137 60% 60%;
+
+    --secondary: 222 47% 16%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 222 30% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent now uses green instead of orange */
+    --accent: 142 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 30% 22%;
+    --input: 222 30% 18%;
+    --ring: 142 71% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom soccer-themed colors */
+    --field-green: 142 71% 45%;
+    --field-dark: 142 60% 30%;
+    --warning-yellow: 45 93% 50%;
+    --star-gold: 45 100% 50%;
+    
+    /* Gradients */
+    --gradient-field: linear-gradient(135deg, hsl(222 47% 8%), hsl(222 47% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(142 60% 35%) 0%, hsl(142 50% 25%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 20px hsl(142 71% 45% / 0.3);
+    
+    --sidebar-background: 222 47% 10%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 142 71% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 16%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 30% 22%;
+    --sidebar-ring: 142 71% 45%;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 137 53% 51%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 137 60% 60%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 142 60% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 71% 45%;
+    
+    --field-green: 142 71% 45%;
+    --field-dark: 142 60% 35%;
+    --warning-yellow: 45 93% 47%;
+    --star-gold: 45 100% 50%;
+    
+    --gradient-field: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 60% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(142 60% 35%) 0%, hsl(142 50% 25%) 100%);
+    
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-dm-sans;
+  }
+}
+
+/* Custom input styles - remove browser arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Custom animations */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(142 60% 35% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(142 60% 35% / 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes breathe-glow {
+  0%, 100% { 
+    box-shadow: 0 0 15px hsl(142 60% 35% / 0.3), 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 30px hsl(142 60% 35% / 0.5), 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+}
+
+@keyframes arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-breathe-glow {
+  animation: breathe-glow 3s ease-in-out infinite;
+}
+
+.group:hover .arrow-nudge {
+  animation: arrow-nudge 1s ease-in-out infinite;
+}
+
+@keyframes spin-ball {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-ball {
+  animation: spin-ball 3s linear infinite;
+}
+
+/* Standardized green CTA: gradient (left lighter, right darker) + pulse glow + hover scale */
+.btn-cta-green {
+  @apply text-primary-foreground font-semibold rounded-2xl border border-[#3DC563]/60 transition-all duration-500 ease-out;
+  background: linear-gradient(135deg, #34A957 0%, #1B7A38 100%);
+  animation: pulse-green-light 2s ease-in-out infinite;
+}
+.btn-cta-green:hover {
+  background: linear-gradient(135deg, #3DC563 0%, #229544 100%);
+  transform: scale(1.02);
+  box-shadow: 0 0 24px hsl(137 53% 51% / 0.55), 0 0 50px hsl(137 53% 51% / 0.3);
+}
+
+/* Floating audio button - glass effect with reflection */
+.audio-btn-floating {
+  @apply p-3 rounded-full backdrop-blur-xl border border-border/30 transition-all;
+  background: linear-gradient(135deg, hsl(var(--card) / 0.6), hsl(var(--card) / 0.8));
+  box-shadow: 
+    0 10px 30px -10px hsl(0 0% 0% / 0.5),
+    inset 0 1px 1px hsl(0 0% 100% / 0.1),
+    0 0 20px hsl(var(--primary) / 0.1);
+}
+
+.audio-btn-floating:hover {
+  background: linear-gradient(135deg, hsl(var(--card) / 0.7), hsl(var(--card) / 0.9));
+  box-shadow: 
+    0 10px 30px -10px hsl(0 0% 0% / 0.6),
+    inset 0 1px 1px hsl(0 0% 100% / 0.15),
+    0 0 25px hsl(var(--primary) / 0.2);
+}
+
+/* Glassmorphism */
+.glass-card {
+  @apply bg-card/60 backdrop-blur-xl border border-border/50;
+}
+
+/* Fixed background for mobile - prevents movement on scroll */
+.fixed-bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* Back button style - lighter hover, no green */
+.back-btn {
+  @apply bg-muted/30 text-foreground transition-all;
+}
+.back-btn:hover {
+  background-color: hsl(var(--muted) / 0.6) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Reset all button style - subtle background */
+.reset-all-btn {
+  @apply bg-muted/30 hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-all border border-border/30;
+}
+
+/* Standardized CTA primary button */
+.cta-primary {
+  @apply bg-primary hover:bg-primary-hover text-primary-foreground text-base font-semibold py-5 px-8 rounded-xl;
+}
+
+/* Toast close button positioning */
+[data-sonner-toast] [data-close-button] {
+  position: absolute !important;
+  right: 8px !important;
+  left: auto !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: hsl(var(--muted) / 0.5) !important;
+  border: 1px solid hsl(var(--border) / 0.5) !important;
+  border-radius: 50% !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  transition: background 0.2s ease !important;
+}
+
+[data-sonner-toast] [data-close-button]:hover {
+  background: hsl(var(--muted) / 0.8) !important;
+}
+
+[data-sonner-toast] [data-close-button] svg {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* Ensure toast content doesn't overlap with close button */
+[data-sonner-toast] {
+  padding-right: 40px !important;
+}
+
+/* Goal celebration animation */
+@keyframes goal-celebration {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 hsl(142 70% 60% / 0);
+    border-color: hsl(142 70% 60% / 0.3);
+  }
+  25%, 75% { 
+    box-shadow: 0 0 30px 10px hsl(142 70% 60% / 0.4);
+    border-color: hsl(142 70% 60%);
+  }
+  50% { 
+    box-shadow: 0 0 50px 15px hsl(142 70% 60% / 0.6);
+    border-color: hsl(142 70% 60%);
+  }
+}
+
+.animate-goal-celebration {
+  animation: goal-celebration 1.5s ease-in-out 6;
+}
+
+/* Animated rotating border for active team badges (only in the 2px border area) */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotate-border {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+/* Pulsating green glow animation for buttons */
+@keyframes pulse-green-light {
+  0%, 100% {
+    box-shadow: 0 0 15px hsl(142 70% 45% / 0.4), 0 0 30px hsl(142 70% 45% / 0.2), 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px hsl(142 70% 50% / 0.6), 0 0 50px hsl(142 70% 50% / 0.35), 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+}
+
+.animate-pulse-green-light {
+  animation: pulse-green-light 2s ease-in-out infinite;
+}
+
+/* Shake animation for icons (periodic) */
+@keyframes shake-icon {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  90% { transform: rotate(-15deg); }
+  92% { transform: rotate(15deg); }
+  94% { transform: rotate(-12deg); }
+  96% { transform: rotate(10deg); }
+  98% { transform: rotate(-6deg); }
+}
+.animate-shake-icon {
+  animation: shake-icon 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animate-border-rotate {
+  position: relative;
+  isolation: isolate;
+}
+
+.animate-border-rotate::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px; /* espessura da borda */
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    transparent 300deg,
+    hsl(142 70% 60% / 0.95) 330deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-border 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.animate-border-rotate > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* White version of animated rotating border for stats card */
+.animate-border-rotate-white {
+  position: relative;
+  isolation: isolate;
+}
+
+.animate-border-rotate-white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    transparent 300deg,
+    hsl(0 0% 100% / 0.8) 330deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-border 2.4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.animate-border-rotate-white > * {
+  position: relative;
+  z-index: 1;
+}
