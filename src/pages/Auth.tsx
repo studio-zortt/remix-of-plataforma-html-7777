@@ -73,7 +73,7 @@ const Auth = () => {
           }
         } else {
           toast.success('Login realizado com sucesso!');
-          navigate('/');
+          navigate('/start');
         }
       } else {
         const { error } = await signUp(email, password);
@@ -85,7 +85,7 @@ const Auth = () => {
           }
         } else {
           toast.success('Conta criada com sucesso!');
-          navigate('/');
+          navigate('/start');
         }
       }
     } catch (err) {
