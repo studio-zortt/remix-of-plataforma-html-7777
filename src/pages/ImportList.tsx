@@ -388,35 +388,6 @@ Goleiros:
             </Card>
           </div>
 
-          {/* Instructions */}
-          <Card className="mt-6 bg-card/60 backdrop-blur-xl border border-primary/30 rounded-3xl">
-            <CardHeader>
-              <CardTitle className="text-foreground text-xl">Dicas para importação</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm text-muted-foreground">
-              <div className="gap-3 flex items-center justify-start">
-                <AlertCircle className="text-warning-yellow flex-shrink-0 mt-0.5 h-[18px] w-[18px]" />
-                <p>A lista pode ter números, pontos ou hífens - o sistema remove automaticamente</p>
-              </div>
-              <div className="gap-3 flex items-center justify-start">
-                <AlertCircle className="text-warning-yellow flex-shrink-0 mt-0.5 w-[18px] h-[18px]" />
-                <p>Linhas vazias são ignoradas</p>
-              </div>
-              <div className="gap-3 flex items-center justify-start">
-                <AlertCircle className="text-warning-yellow flex-shrink-0 mt-0.5 h-[18px] w-[18px]" />
-                <p>Identifique goleiros com "Goleiros:" ou similar</p>
-              </div>
-              <div className="gap-3 flex items-start justify-start">
-                <Key className="text-star-gold flex-shrink-0 mt-0.5 w-[18px] h-[18px]" />
-                <div>
-                  <p className="text-star-gold font-medium">Marque cabeças de chave com *, # ou @ no nome (ex: "João *")</p>
-                  <p className="text-muted-foreground/80 text-xs mt-1">Cabeças de chave serão distribuídos em times diferentes para equilibrar</p>
-                  <p className="text-muted-foreground/80 text-xs mt-2">Para mais equilíbrio, defina níveis: @2 (2º melhor), @3 (3º melhor), etc.</p>
-                  <p className="text-muted-foreground/80 text-xs mt-1">Jogadores do mesmo nível não caem no mesmo time</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </main>
 
         {/* Footer */}
