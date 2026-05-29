@@ -34,7 +34,7 @@ const Auth = () => {
     if (user && !loading) {
       const params = new URLSearchParams(window.location.search);
       const redirect = params.get('redirect');
-      navigate(redirect === 'full-baba' ? '/start' : '/');
+      navigate(redirect === 'full-baba' ? '/start' : '/start');
     }
   }, [user, loading, navigate]);
 
@@ -73,7 +73,7 @@ const Auth = () => {
           }
         } else {
           toast.success('Login realizado com sucesso!');
-          navigate('/');
+          navigate('/start');
         }
       } else {
         const { error } = await signUp(email, password);
@@ -85,7 +85,7 @@ const Auth = () => {
           }
         } else {
           toast.success('Conta criada com sucesso!');
-          navigate('/');
+          navigate('/start');
         }
       }
     } catch (err) {
