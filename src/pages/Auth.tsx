@@ -34,7 +34,7 @@ const Auth = () => {
     if (user && !loading) {
       const params = new URLSearchParams(window.location.search);
       const redirect = params.get('redirect');
-      navigate(redirect === 'full-baba' ? '/start' : '/');
+      navigate(redirect === 'full-baba' ? '/start' : '/start');
     }
   }, [user, loading, navigate]);
 
